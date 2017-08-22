@@ -1,0 +1,33 @@
+#content {
+  padding: 50px;
+  text-align: center;
+  padding-top: 15px;
+}
+
+
+
+/*.content  {
+  display: inline-block;
+  width: 60px;
+  height: 50px;
+}*/
+
+
+
+#m, #s {
+  font-size: 102px;
+  color: red;
+}
+
+body {
+background-color: black;
+
+}
+
+.clock {
+  
+    display: flex;
+    justify-content: center;
+
+}
+

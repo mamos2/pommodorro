@@ -1,0 +1,102 @@
+var counterSec = 5;
+var counterMin = parseInt(prompt("Entrez un temps de travail (de 20 à 30) :"));
+var intervalId = null;
+var minrepos = parseInt(prompt("Entrez un temps de pause (de 5 à 10) :"));
+var secrepos= 4;
+var tourSprint = 0;
+var copieCounterMin = 1;
+var copieCounterSec = 5;
+
+
+
+function startrepos()
+{
+  
+      intervalId = setInterval(timmer, 1000);
+      document.getElementById("timmer").innerHTML = minrepos + 'm' + secrepos + " temps restant" + " " + "</br> Une pause serait la bienvenue ;)!";  
+      secrepos--;
+      setTimeout(secrepos * 1000 + 1000*60*minrepos);
+      if  ( secrepos < 1 ) {
+            minrepos--;
+            secrepos = 59;
+      } 
+
+      else if (counterMin == 0 && counterSec == 1 || secrepos == 1 && minrepos ==0) {
+        //document.getElementById("timmer").innerHTML = 5;
+      clearInterval (intervalId);
+      tourSprint++;
+      
+      }
+
+      
+
+} 
+
+
+
+/*function repos()
+{
+  
+  intervalId = setInterval(timmer, 1000);
+  setTimeout(startrepos, secrepos * 1000 + 1000*60*minrepos);
+  document.getElementById("timmer").innerHTML = minrepos + 'm' + secrepos + " temps restant" + " " + "</br> Une pause serait la bienvenue ;)!";  
+}*/
+
+
+
+
+/*function pause()
+{
+  clearInterval(intervalId);
+  document.getElementById("timmer").innerHTML = counterMin + 'm' + counterSec + " temps restant" + " " + "</br> Une pause serait la bienvenue ;)!";  
+}*/
+
+function start()
+{
+  intervalId = setInterval(timmer, 1000);
+  setTimeout( counterSec * 1000 + 1000*60*counterMin);
+  if  ( counterSec < 1 ) {
+        counterMin--;
+        counterSec = 59;
+  }
+
+
+} 
+
+function reset () {
+  document.getElementById("timmer").innerHTML = 25;
+  clearInterval(intervalId);
+}
+
+function timmer()
+{
+  document.getElementById("timmer").innerHTML = counterMin + 'm' + counterSec + " temps restant";
+  counterSec--;
+      
+      if (counterMin == 0 && counterSec == 1 || secrepos == 1 && minrepos ==0) {
+        //document.getElementById("timmer").innerHTML = 5;
+      tourSprint++;
+      }
+
+
+      else if (tourSprint == 1 || tourSprint == 3) {
+        clearInterval (intervalId);
+        startrepos(5,5);
+      } 
+
+      
+  
+}
+
+function start2()
+{
+  intervalId = setInterval(timmer, 1000);
+  setTimeout( copieCounterSec * 1000 + 1000*60*copieCounterMin);
+  document.getElementById("timmer").innerHTML = copieCounterMin + 'm' + copieCounterSec + " temps restant" + " " + "</br> allez on boss ;) !";
+  if  ( copieCounterSec < 1 ) {
+        copieCounterMin--;
+        copieCounterSec = 59;
+  }
+}
+
+console.log (tourSprint);
